@@ -4,6 +4,7 @@ setTimeout(() => {
     console.log("promise1");
   });
 }, 0);
+
 setTimeout(() => {
   console.log("timer2");
   Promise.resolve().then(function() {

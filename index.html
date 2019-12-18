@@ -28,8 +28,16 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h1>Event loop</h1>
+				<h1>The event loop</h1>
 				<small>Created by <a href="#">Anton "leanni" Lesnichenka</a></small>
+			</section>
+			<section>
+				<h3>Callback</h3>
+				<pre><code>
+					
+		setTimeout(callback, 500)
+				
+				</code></pre>
 			</section>
 			<section>
 				<section>
@@ -86,36 +94,405 @@ setTimeout(() => {
 			<section>
 				<section class="fragments">
 					<h3>Event loop in Browser</h3>
-					<pre><code>
-button.addEventListener("click", () => {
-	Promise.resolve().then(() => console.log("Microtask 1"));
+					<pre><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
 	console.log("Listener 1");
 });
 
-button.addEventListener("click", () => {
-	Promise.resolve().then(() => console.log("Microtask 2"));
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
 	console.log("Listener 2");
 });						
 				</code></pre>
 					<p class="fragment" data-fragment-index="0">Listener1 => Microtask1 => Listener2 => Microtask2</p>
 				</section>
-				<section class="fragments">
-					<h3>Event loop in Browser</h3>
-					<pre><code>
-button.addEventListener("click", () => {
-	Promise.resolve().then(() => console.log("Microtask 1"));
+				<section>
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
 	console.log("Listener 1");
 });
 
-button.addEventListener("click", () => {
-	Promise.resolve().then(() => console.log("Microtask 2"));
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
 	console.log("Listener 2");
+});						
+						</code></pre>
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
 });
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s1.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s2.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s3.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s4.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s5.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s6.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s7.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s8.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s9.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+							</code></pre>
+					<img src="./image/p1s10.png" alt="" />
+				</section>
+			</section>
+			<section>
+				<section class="fragments">
+					<h3>Event loop in Browser</h3>
+					<pre><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
 
 button.click();
 					</code></pre>
 					<p class="fragment" data-fragment-index="0">Listener1 => Listener2 => Microtask1 => Microtask2</p>
 				</section>
+				<section>
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s1.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s2.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s3.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s4.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s5.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s6.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s7.png" alt="" />
+				</section>
+				<section data-transition="none">
+					<pre style="position: absolute; font-size: 12px; width: 40%; top: 21%; z-index: 100;"><code style="line-height: 1;">
+button.addEventListener("click", function event1() {
+	Promise.resolve().then(function promise1() {
+		console.log("Microtask 1")
+	});
+	console.log("Listener 1");
+});
+
+button.addEventListener("click", function event2() {
+	Promise.resolve().then(function promise2() {
+		console.log("Microtask 2")
+	});
+	console.log("Listener 2");
+});						
+
+button.click();
+							</code></pre>
+					<img src="./image/p2s8.png" alt="" />
+				</section>
+			</section>
+			<section>
+				<h3>First task in Browser</h3>
+				<img src="./image/2019-01-14-007.gif" />
 			</section>
 			<section>
 				<h3>Event loop in Node.JS</h3>
@@ -164,8 +541,6 @@ fs.readFile(__filename, () => {
 				</section>
 			</section>
 			<section>
-
-
 				<section>
 					<h3>First task</h3>
 					<p>How is result?</p>
@@ -185,13 +560,23 @@ setTimeout(() => {
 					</code></pre>
 				</section>
 				<section>
-					<h3>First task in Browser</h3>
-					<img src="./image/2019-01-14-007.gif" />
-				</section>
-				<section>
 					<h3>First task in Node.JS</h3>
 					<img src="./image/2019-01-14-008.gif" />
 				</section>
+			</section>
+			<section>
+				<h3>Useful links</h3>
+				<ul>
+					<li><a href="https://developpaper.com/whats-the-difference-between-browsers-and-nodes-event-loop/">What’s the
+							difference between browsers and Node’s Event Loop?</a></li>
+					<li><a href="https://www.youtube.com/watch?v=j4_9BZezSUA">Jake Archibald: все что я знаю про Event Loop в
+							JavaScript</a></li>
+					<li><a
+							href="https://medium.com/@olgakozlova/promises-next-ticks-%D0%B8-immediates-%D1%86%D0%B8%D0%BA%D0%BB-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9-nodejs-%D1%87%D0%B0%D1%81%D1%82%D1%8C-3-8f152a2fc642">Promises,
+							Next-Ticks и Immediates — Цикл событий NodeJS</a></li>
+					<li><a href="https://skillbox.ru/media/code/event_loop_chast_1/">Как управлять event loop в JavaScript</a>
+					</li>
+				</ul>
 			</section>
 			<section>
 				<h1>Questions?</h1>
